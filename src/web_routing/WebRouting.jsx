@@ -1,0 +1,62 @@
+// ... React modules
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { AnimatePresence } from "framer-motion";
+
+// ... Context
+import { NavigationContext } from "@contexts/NavigationContextProvider";
+
+// ... Components
+import AboutPage from "@pages/about_page/AboutPage";
+import ContactPage from "@pages/contact_page/ContactPage";
+import HomePage from "@pages/home_page/HomePage";
+import PortfolioPage from "@pages/portfolio_page/PortfolioPage";
+import ServicePage from "@pages/service_page/ServicePage";
+import ExperiencePage from "@pages/experience_page/ExperiencePage";
+
+// ... Assets
+
+/*
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+*/
+const WebRouting = () => {
+  const location = useLocation();
+  /*
+  |----------------------------------------
+  | Comment here
+  |----------------------------------------
+  */
+  const { home, about, portfolio, service, contact, experience } =
+    useContext(NavigationContext);
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/* Homepage */}
+        <Route path={home?.path} element={<HomePage />} />
+
+        {/* About page */}
+        <Route path={about?.path} element={<AboutPage />} />
+
+        {/* Portfolio page */}
+        <Route path={portfolio?.path} element={<PortfolioPage />} />
+
+        {/* Services page */}
+        <Route path={service?.path} element={<ServicePage />} />
+
+        {/* Experience Page */}
+        <Route path={experience?.path} element={<ExperiencePage />} />
+
+        {/* Contact page */}
+        <Route path={contact?.path} element={<ContactPage />} />
+
+        {/* Not found */}
+        <Route path="*" element="Page Not Found" />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
+export default WebRouting;
