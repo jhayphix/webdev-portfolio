@@ -25,9 +25,6 @@ export const NavigationContext = createContext({
   dashboard: {},
   service: {},
   contact: {},
-
-  // Custom url
-  resume_path: "",
 });
 
 const NavigationContextProvider = ({ children }) => {
@@ -55,7 +52,6 @@ const NavigationContextProvider = ({ children }) => {
   | Custom route
   |----------------------------------------
   */
-  const resume_path = `${base_route}/documents/samuel_ablordeppey_webdev_resume.pdf`;
   const analytic_portfolio_url = "https://analytic-portfolio.vercel.app/";
 
   /*
@@ -76,7 +72,6 @@ const NavigationContextProvider = ({ children }) => {
     contact,
 
     // Custom path
-    resume_path,
     analytic_portfolio_url,
   };
 
