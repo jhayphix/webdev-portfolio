@@ -1,6 +1,11 @@
-const ButtonDocument = ({ btn_text, className, onClick }) => {
+const ButtonDocument = () => {
   return (
-    <button id="continue_application" className={className} onClick={onClick}>
+    <a
+      href="https://www.canva.com/design/DAGSgXhWVa4/jPQzI5FNLUbt5MxHubWXPg/view?utm_content=DAGSgXhWVa4&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="continue_application"
+    >
       <div className="application_container">
         <div className="pencil"></div>
         <div className="folder">
@@ -12,15 +17,9 @@ const ButtonDocument = ({ btn_text, className, onClick }) => {
           <div className="paper"></div>
         </div>
       </div>
-      {btn_text}
-    </button>
+      View My Resume
+    </a>
   );
 };
-
-ButtonDocument.defaultProps = [
-  {
-    btn_text: "Button",
-  },
-];
 
 export default ButtonDocument;
